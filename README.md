@@ -19,13 +19,6 @@
 
 
 
-## 开发
-1. 从 Gitee 或者 github clone 代码到本地
-1. 修改根pom.xml中properties节点下dest.path为自己本地打包文件输出目录
-1. 在根pom.xml所在目录执行 mvn clean package
-
-
-
 ## 交流反馈,参与贡献
 - Github
 
