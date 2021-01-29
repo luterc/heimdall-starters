@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <groupId>com.github.luterc</groupId>
+    <version>1.0.0</version>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>heimdall-dependencies</artifactId>
+    <packaging>pom</packaging>
+    <name>${project.artifactId}</name>
+    <description>Heimdall Starters 全局依赖</description>
+    <url>https://github.com/luterc/heimdall</url>
+    <licenses>
+        <license>
+            <name>Apache 2</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>luterc</id>
+            <name>luterc</name>
+            <email>cluter@qq.com</email>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
+    <!--    属性版本定义-->
+    <properties>
+        <!--        maven变量定义-->
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <!--        maven插件-->
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+        <maven-javadoc-plugin.version>3.0.0</maven-javadoc-plugin.version>
+        <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
+        <dockerfile-maven-plugin.version>1.4.12</dockerfile-maven-plugin.version>
+        <maven-source-plugin.version>3.1.0</maven-source-plugin.version>
+        <versions-maven-plugin.version>2.7</versions-maven-plugin.version>
+        <maven-processor-plugin.version>3.1.0</maven-processor-plugin.version>
+        <!--//////////////////////// 类库定义-->
+        <spring-boot.version>2.4.2</spring-boot.version>
+        <spring-boot-maven-plugin.version>${spring-boot.version}</spring-boot-maven-plugin.version>
+        <jpamodelgen.version>5.4.18.Final</jpamodelgen.version>
+        <mysql.version>8.0.20</mysql.version>
+        <jpa-spec.version>3.2.5</jpa-spec.version>
+        <mybatis.version>2.1.2</mybatis.version>
+        <mybatis-plus.version>3.4.0</mybatis-plus.version>
+        <p6spy.version>3.8.5</p6spy.version>
+        <jsqlparser.version>3.2</jsqlparser.version>
+        <!--        全局工具类-->
+        <hutool.version>5.4.7</hutool.version>
+        <lombok.version>1.18.12</lombok.version>
+        <!--        请求参数解析-->
+        <bitwalker.version>1.21</bitwalker.version>
+        <!--        xss过滤-->
+        <antisamy.version>1.5.10</antisamy.version>
+        <swagger.version>1.6.2</swagger.version>
+        <knife4j.version>2.0.4</knife4j.version>
+        <springfox.version>2.9.2</springfox.version>
+        <caffeine.version>2.8.8</caffeine.version>
+        <disruptor.version>3.4.2</disruptor.version>
+        <tika.version>1.24.1</tika.version>
+        <thumbnailator.version>0.4.13</thumbnailator.version>
+        <minio.version>7.1.0</minio.version>
+        <guava.version>30.0-jre</guava.version>
+        <commons.io.version>2.8.0</commons.io.version>
+        <easy-captcha.version>1.6.2</easy-captcha.version>
+        <kaptcha.version>2.3.2</kaptcha.version>
+        <oshi.version>5.2.5</oshi.version>
+        <findbugs-annotations.version>3.0.1</findbugs-annotations.version>
+        <micrometer.version>1.6.2</micrometer.version>
+        <ip2region.version>1.7.2</ip2region.version>
+        <heimdall.version>1.0.4</heimdall.version>
+    </properties>
+    <!-- 全局依赖定义 -->
+    <dependencyManagement>
+        <dependencies>
+            <!--        spring boot    全局版本-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!--            排除logbak-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <exclusions>
+                    <!--排除logback-->
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!--            全局工具-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <!--           http request 请求解析-->
+            <dependency>
+                <groupId>eu.bitwalker</groupId>
+                <artifactId>UserAgentUtils</artifactId>
+                <version>${bitwalker.version}</version>
+            </dependency>
+            <!--            ip地址解析库-->
+            <dependency>
+                <groupId>org.lionsoul</groupId>
+                <artifactId>ip2region</artifactId>
+                <version>${ip2region.version}</version>
+            </dependency>
+            <!--        异步并发日志-->
+            <dependency>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>${disruptor.version}</version>
+            </dependency>
+            <!--        数据库驱动:mysql-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!--        sql显示-->
+            <dependency>
+                <groupId>p6spy</groupId>
+                <artifactId>p6spy</artifactId>
+                <version>${p6spy.version}</version>
+            </dependency>
+            <!--            jpa-spec-->
+            <dependency>
+                <groupId>com.github.wenhao</groupId>
+                <artifactId>jpa-spec</artifactId>
+                <version>${jpa-spec.version}</version>
+            </dependency>
+            <!--        生成JPA Static Model，避免直接字段输入-->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-jpamodelgen</artifactId>
+                <version>${jpamodelgen.version}</version>
+            </dependency>
+            <!--            sql语句解析-->
+            <dependency>
+                <groupId>com.github.jsqlparser</groupId>
+                <artifactId>jsqlparser</artifactId>
+                <version>${jsqlparser.version}</version>
+            </dependency>
+            <!-- XSS -->
+            <dependency>
+                <groupId>org.owasp.antisamy</groupId>
+                <artifactId>antisamy</artifactId>
+                <version>${antisamy.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>commons-logging</artifactId>
+                        <groupId>commons-logging</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!--        丝袜哥-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-dependencies</artifactId>
+                <version>${knife4j.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>javassist</artifactId>
+                        <groupId>org.javassist</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!--            swagger-->
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-core</artifactId>
+                <version>${springfox.version}</version>
+            </dependency>
+            <!--            图形验证码-->
+            <dependency>
+                <groupId>com.github.whvcse</groupId>
+                <artifactId>easy-captcha</artifactId>
+                <version>${easy-captcha.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.penggle</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>${kaptcha.version}</version>
+            </dependency>
+            <!--        媒体资源识别-->
+            <dependency>
+                <groupId>org.apache.tika</groupId>
+                <artifactId>tika-core</artifactId>
+                <version>${tika.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.ben-manes.caffeine</groupId>
+                <artifactId>caffeine</artifactId>
+                <version>${caffeine.version}</version>
+            </dependency>
+            <!--        图片处理-->
+            <dependency>
+                <groupId>net.coobird</groupId>
+                <artifactId>thumbnailator</artifactId>
+                <version>${thumbnailator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io.version}</version>
+            </dependency>
+            <!--mybatis plus-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.luterc</groupId>
+                <artifactId>heimdall-starter-spring-boot</artifactId>
+                <version>${heimdall.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.luterc</groupId>
+                <artifactId>heimdall-starter-data-redis</artifactId>
+                <version>${heimdall.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.luterc</groupId>
+                <artifactId>heimdall-starter-caffeine</artifactId>
+                <version>${heimdall.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>annotations</artifactId>
+                <version>${findbugs-annotations.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

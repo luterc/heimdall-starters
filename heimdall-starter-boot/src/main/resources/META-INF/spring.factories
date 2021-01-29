@@ -1,0 +1,3 @@
+# 参数验证模块自动注册
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.luter.heimdall.starter.boot.validator.config.SpringValidateAutoConfig
