@@ -28,6 +28,8 @@
 
 <a target="_blank" href="https://github.com/luterc/heimdall-admin-ui">**Heimdall-admin-ui  管理系统前端 UI** </a>
 
+<a target="_blank" href="https://github.com/luterc/heimdall-admin-ui">**Heimdall-Starters 通用模块** </a>
+
 **技术交流QQ群:	554290469**
 
 欢迎fork，star，欢迎提需求，欢迎吐槽，支持共建！
