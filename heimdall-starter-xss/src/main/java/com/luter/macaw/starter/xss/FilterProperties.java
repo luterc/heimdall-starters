@@ -25,12 +25,29 @@ package com.luter.macaw.starter.xss;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+/**
+ * The type Filter properties.
+ *
+ * @author Luter
+ */
 @Data
-@ConfigurationProperties(prefix = "luter.xss")
+@ConfigurationProperties(prefix = "heimdall.xss")
 public class FilterProperties {
+    /**
+     * 是否开启xss拦截,默认开启
+     */
     private Boolean enabled = false;
+    /**
+     * 排除链接,哪些url不需要进行xss预处理。（多个用逗号分隔）,默认为空
+     */
     private String excludes = "";
+    /**
+     * 哪些路径需要xss拦截,多个用逗号分隔，支持AntPath风格配置.默认为空
+     */
     private String urlPatterns = "";
 
+    /**
+     * 过滤器顺序，越小越靠前
+     */
     private Integer order = 1;
 }

@@ -28,7 +28,7 @@
 
     <groupId>com.github.luterc</groupId>
     <artifactId>heimdall-starters</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <modules>
         <module>heimdall-dependencies</module>
         <module>heimdall-starter-boot</module>
@@ -39,6 +39,8 @@
         <module>heimdall-starter-jpa</module>
         <module>heimdall-starter-syslog</module>
         <module>heimdall-starter-xss</module>
+        <module>heimdall-starter-mybatis</module>
+        <module>heimdall-starter-oss</module>
     </modules>
 
     <name>${project.artifactId}</name>
@@ -87,49 +89,59 @@
             <dependency>
                 <groupId>com.github.luterc</groupId>
                 <artifactId>heimdall-dependencies</artifactId>
-                <version>1.0.0</version>
+                <version>1.0.1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>com.github.luterc</groupId>
                 <artifactId>heimdall-starter-model</artifactId>
-                <version>1.0.0</version>
+                <version>1.0.1</version>
             </dependency>
             <dependency>
                 <groupId>com.github.luterc</groupId>
                 <artifactId>heimdall-starter-utils</artifactId>
-                <version>1.0.0</version>
+                <version>1.0.1</version>
             </dependency>
             <dependency>
                 <groupId>com.github.luterc</groupId>
                 <artifactId>heimdall-starter-boot</artifactId>
-                <version>1.0.0</version>
+                <version>1.0.1</version>
             </dependency>
             <dependency>
                 <groupId>com.github.luterc</groupId>
                 <artifactId>heimdall-starter-redis</artifactId>
-                <version>1.0.0</version>
+                <version>1.0.1</version>
             </dependency>
             <dependency>
                 <groupId>com.github.luterc</groupId>
                 <artifactId>heimdall-starter-captcha</artifactId>
-                <version>1.0.0</version>
+                <version>1.0.1</version>
             </dependency>
             <dependency>
                 <groupId>com.github.luterc</groupId>
                 <artifactId>heimdall-starter-jpa</artifactId>
-                <version>1.0.0</version>
+                <version>1.0.1</version>
             </dependency>
             <dependency>
                 <groupId>com.github.luterc</groupId>
                 <artifactId>heimdall-starter-syslog</artifactId>
-                <version>1.0.0</version>
+                <version>1.0.1</version>
             </dependency>
             <dependency>
                 <groupId>com.github.luterc</groupId>
                 <artifactId>heimdall-starter-xss</artifactId>
-                <version>1.0.0</version>
+                <version>1.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.luterc</groupId>
+                <artifactId>heimdall-starter-mybatis</artifactId>
+                <version>1.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.luterc</groupId>
+                <artifactId>heimdall-starter-oss</artifactId>
+                <version>1.0.1</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

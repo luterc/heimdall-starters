@@ -25,8 +25,17 @@ package com.luter.heimdall.starter.syslog.config;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+/**
+ * The type Log config.
+ *
+ * @author Luter
+ */
 @Data
-@ConfigurationProperties(prefix = "luter.syslog")
+@ConfigurationProperties(prefix = "heimdall.syslog")
 public class LogConfig {
+
+    /**
+     * 开启系统日志记录
+     */
     private Boolean enabled = true;
 }

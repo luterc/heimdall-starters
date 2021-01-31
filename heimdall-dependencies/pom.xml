@@ -25,7 +25,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <groupId>com.github.luterc</groupId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>heimdall-dependencies</artifactId>
     <packaging>pom</packaging>
@@ -102,6 +102,7 @@
         <micrometer.version>1.6.2</micrometer.version>
         <ip2region.version>1.7.2</ip2region.version>
         <heimdall.version>1.0.4</heimdall.version>
+        <minio.version>7.1.0</minio.version>
     </properties>
     <!-- 全局依赖定义 -->
     <dependencyManagement>
@@ -295,6 +296,17 @@
                 <groupId>com.google.code.findbugs</groupId>
                 <artifactId>annotations</artifactId>
                 <version>${findbugs-annotations.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
         </dependencies>
     </dependencyManagement>

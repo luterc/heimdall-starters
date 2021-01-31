@@ -27,12 +27,12 @@
     <parent>
         <artifactId>heimdall-starters</artifactId>
         <groupId>com.github.luterc</groupId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>heimdall-starter-utils</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
     <description>全局公共工具类</description>

@@ -27,10 +27,10 @@
     <parent>
         <artifactId>heimdall-starters</artifactId>
         <groupId>com.github.luterc</groupId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <artifactId>heimdall-starter-jpa</artifactId>
 
     <name>${project.artifactId}</name>

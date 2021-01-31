@@ -26,31 +26,37 @@ import cn.hutool.core.convert.Convert;
 import cn.hutool.core.util.StrUtil;
 import com.luter.heimdall.starter.utils.constants.BaseConstants;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+@Slf4j
 @NoArgsConstructor
 public final class BaseContextHolder {
     private static final ThreadLocal<Map<String, String>> THREAD_LOCAL = new ThreadLocal<>();
 
     public static void set(String key, Object value) {
         Map<String, String> map = getMap();
+        log.debug("设置 ThreadLocal 数据，key:{},value:{}", key, value);
         map.put(key, value == null ? StrUtil.EMPTY : value.toString());
     }
 
     public static <T> T get(String key, Class<T> type) {
         Map<String, String> map = getMap();
+        log.debug("获取 ThreadLocal 数据，key:{},type:{}", key, type.getName());
         return Convert.convert(type, map.get(key));
     }
 
     public static <T> T get(String key, Class<T> type, Object defaultValue) {
         Map<String, String> map = getMap();
+        log.debug("获取 ThreadLocal 数据，key:{},type:{},defaultValue:{}", key, type.getName(),defaultValue);
         return Convert.convert(type, map.getOrDefault(key, String.valueOf(defaultValue == null ? StrUtil.EMPTY : defaultValue)));
     }
 
     public static String get(String key) {
         Map<String, String> map = getMap();
+        log.debug("获取 ThreadLocal 数据，key:{}", key);
         return map.getOrDefault(key, StrUtil.EMPTY);
     }
 
@@ -68,6 +74,7 @@ public final class BaseContextHolder {
     }
 
     public static void remove() {
+        log.debug("清理 ThreadLocal 数据");
         THREAD_LOCAL.remove();
     }
 //    ///////业务部分

@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.luter.heimdall.starter.oss.config.LocalAutoConfigutration,\
+com.luter.heimdall.starter.oss.config.MinioAutoConfiguration

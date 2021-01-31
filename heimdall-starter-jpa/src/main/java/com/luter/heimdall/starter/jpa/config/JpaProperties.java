@@ -30,13 +30,24 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Jpa properties.
+ *
+ * @author Luter
+ */
 @Slf4j
 @Data
 @Component
 @ConfigurationProperties(prefix = "heimdall.showcase")
 public class JpaProperties {
 
+    /**
+     * 是否开启演示模式，演示模式下表数据只读不写
+     */
     private Boolean enabled = false;
 
+    /**
+     * 演示模式下，哪些表需要被排除.这些表可增删改查
+     */
     private List<String> excludeTables = new ArrayList<>();
 }

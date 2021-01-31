@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.luter.heimdall.starter.mybatis.config.MybatisAutoConfiguration

@@ -37,16 +37,39 @@ import java.time.Duration;
 @ConfigurationProperties(prefix = "heimdall.captcha")
 @Data
 public class CaptchaConfig {
+    /**
+     * 是否开启登录图形验证码，默认:true
+     */
     private boolean enabled = true;
+    /**
+     * 图形验证码缓存方式,local、redis ,默认local
+     */
     private CaptchaCacheTypeEnum cacheType = CaptchaCacheTypeEnum.LOCAL;
+    /**
+     * 图形验证码的实现方式，simple\google\easy,默认easy方式
+     */
     private CaptchaTypeEnum type = CaptchaTypeEnum.EASY;
+    /**
+     * 验证码在缓存中保存的时长。 默认180s
+     */
     private Duration cacheExpire = Duration.ofSeconds(180);
+    /**
+     * 缓存中的key前缀，默认:captcha:
+     */
     private String keyPrefix = "captcha:";
+    /**
+     * simple简单版实现的图形验证码配置参数
+     */
     @NestedConfigurationProperty
     private SimpleCaptchaProperties simpleCaptcha = new SimpleCaptchaProperties();
+    /**
+     * easy captcha 实现的图形验证码配置参数
+     */
     @NestedConfigurationProperty
     private EasyCaptchaProperties easyCaptcha = new EasyCaptchaProperties();
+    /**
+     * google captcha 实现的图形验证码配置参数
+     */
     @NestedConfigurationProperty
     private GoogleCaptchaProperties googleCaptcha = new GoogleCaptchaProperties();
-
 }
