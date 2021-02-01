@@ -33,9 +33,9 @@ import com.luter.heimdall.starter.model.pagination.PageDTO;
 import com.luter.heimdall.starter.model.pagination.PagerVO;
 import com.luter.heimdall.starter.mybatis.base.entity.MybatisAbstractEntity;
 import com.luter.heimdall.starter.mybatis.base.service.BaseMybatisService;
+import com.luter.heimdall.starter.mybatis.helper.MybatisPaginationHelper;
 import com.luter.heimdall.starter.utils.exception.LuterIdEntityNotFoundException;
 import com.luter.heimdall.starter.utils.exception.LuterIllegalParameterException;
-import com.luter.heimdall.starter.mybatis.helper.MybatisPaginationHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -63,6 +63,11 @@ public abstract class BaseMybatisServiceImpl<M extends BaseMapper<T>, T extends 
     @Override
     public T get(Serializable id) {
         return getById(id, true);
+    }
+
+    @Override
+    public boolean updateEntity(T entity) {
+        return updateById(entity);
     }
 
     @Override

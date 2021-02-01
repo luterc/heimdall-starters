@@ -40,6 +40,8 @@ public interface BaseMybatisService<T> extends IService<T> {
 
     T get(Serializable id);
 
+    boolean updateEntity(T entity);
+
     boolean saveIdempotency(T entity, String lockKey, Wrapper<T> countWrapper, String msg);
 
     boolean saveIdempotency(T entity, String lockKey, Wrapper<T> countWrapper);

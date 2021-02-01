@@ -35,6 +35,11 @@ public interface BaseExtendMapper<D, E, V> {
 
     List<V> entityListToVOList(List<E> entityList);
 
+    List<D> entityListToDTOList(List<E> entityList);
+
+    List<E> dtoListToEntityList(List<D> dtoList);
+
+
     /////vo 与 dto
 
     D voToDTO(V vo);
